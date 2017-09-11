@@ -1,20 +1,1 @@
-package masutech16;
-
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.event.*;
-
-public class Main {
-
-
-    public static void main(String[] args) {
-        Window frame = new Window();
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(10, 10, 300, 200);
-        frame.setTitle("OnlyTweeting");
-        frame.setVisible(true);
-    }
-
-
-}
+package masutech16;import twitter4j.Status;import twitter4j.Twitter;import twitter4j.TwitterFactory;import javax.swing.*;import java.awt.BorderLayout;import java.awt.event.*;public class Main {    public static void main(String[] args) throws Exception {        //Window setting        Window frame = new Window();        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        frame.setBounds(10, 10, 300, 200);        frame.setTitle("OnlyTweeting");        frame.setVisible(true);    }}

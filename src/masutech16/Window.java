@@ -7,9 +7,10 @@ import java.awt.event.*;
 public class Window extends JFrame implements ActionListener {
 
     private JTextArea content;
+    private Twitter4jWrapper twitter;
 
     Window() {
-        JButton tweetButton = new JButton("投稿");
+        JButton tweetButton = new JButton("POST");
         tweetButton.addActionListener(this);
 
         JPanel p = new JPanel();
@@ -22,9 +23,11 @@ public class Window extends JFrame implements ActionListener {
 
         getContentPane().add(p, BorderLayout.CENTER);
         getContentPane().add(content, BorderLayout.PAGE_END);
+
+        twitter = new Twitter4jWrapper();
     }
 
     public void actionPerformed(ActionEvent e) {
-        System.out.println(content.getText());
+        twitter.Tweet(content.getText());
     }
 }
