@@ -36,7 +36,7 @@ public class Twitter4jWrapper {
         }
     }
 
-    public String getRequestTokenUrl() {
+    String getRequestTokenUrl() {
         try{
             requestToken = twitter.getOAuthRequestToken();
         } catch(TwitterException te) {
@@ -47,7 +47,7 @@ public class Twitter4jWrapper {
         return requestToken.getAuthenticationURL();
     }
 
-    public boolean canCreateAccessToken(String pin) {
+    boolean canCreateAccessToken(String pin) {
         try {
             accessToken = twitter.getOAuthAccessToken(requestToken,pin);
         } catch(TwitterException te) {
