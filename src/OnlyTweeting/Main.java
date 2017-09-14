@@ -1,0 +1,1 @@
+package OnlyTweeting;import javax.swing.*;public class Main {    public static void main(String[] args) {        Twitter4jWrapper twitter4jWrapper = new Twitter4jWrapper();        PinInputWindow pinInputWindow = new PinInputWindow(twitter4jWrapper);        pinInputWindow.setVisible(true);    }}

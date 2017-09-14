@@ -36,4 +36,4 @@ bin
 *.log
 *.swp
 *.bak
-*.properties
+Settings.*

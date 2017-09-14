@@ -1,4 +1,4 @@
-package masutech16;
+package OnlyTweeting;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -9,8 +9,13 @@ public class Window extends JFrame implements ActionListener {
     private JTextArea content;
     private Twitter4jWrapper twitter;
 
-    Window() {
-        JButton tweetButton = new JButton("POST");
+    Window(Twitter4jWrapper twitter4jWrapper) {
+        twitter = twitter4jWrapper;
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(10, 10, 300, 200);
+        setTitle(Settings.APP_NAME);
+
+        JButton tweetButton = new JButton("Tweet");
         tweetButton.addActionListener(this);
 
         JPanel p = new JPanel();
@@ -21,10 +26,8 @@ public class Window extends JFrame implements ActionListener {
         content.setRows(8);
 
 
-        getContentPane().add(p, BorderLayout.CENTER);
-        getContentPane().add(content, BorderLayout.PAGE_END);
-
-        twitter = new Twitter4jWrapper();
+        add(p, BorderLayout.CENTER);
+        add(content, BorderLayout.PAGE_END);
     }
 
     public void actionPerformed(ActionEvent e) {
