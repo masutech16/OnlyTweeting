@@ -15,16 +15,20 @@ public class Twitter4jWrapper {
     private AccessToken accessToken = null;
 
 
-    Twitter4jWrapper() {
+    Twitter4jWrapper(String consumerKey, String consumerSecret, String accessToken, String accessSecret) {
         //設定の初期化
         ConfigurationBuilder cb = new ConfigurationBuilder();
-        cb.setOAuthConsumerKey(Settings.consumerKey);
-        cb.setOAuthConsumerSecret(Settings.consumerSecret);
-        cb.setOAuthAccessToken(null);
-        cb.setOAuthAccessTokenSecret(null);
+        cb.setOAuthConsumerKey(consumerKey);
+        cb.setOAuthConsumerSecret(consumerSecret);
+        cb.setOAuthAccessToken(accessToken);
+        cb.setOAuthAccessTokenSecret(accessSecret);
 
         TwitterFactory tf = new TwitterFactory(cb.build());
         twitter = tf.getInstance();
+    }
+
+    Twitter4jWrapper(String consumerKey, String consumerSecret) {
+        this(consumerKey, consumerSecret, null, null);
     }
 
     void Tweet(String content) {
@@ -49,15 +53,11 @@ public class Twitter4jWrapper {
     boolean canCreateAccessToken(String pin) {
         try {
             accessToken = twitter.getOAuthAccessToken(requestToken,pin);
+            FileManager.writeAccessToken(accessToken);
         } catch(TwitterException te) {
             return false;
         }
         return true;
     }
-
-    private static void storeAccessToken(int useId, AccessToken accessToken) {
-
-    }
-
 
 }

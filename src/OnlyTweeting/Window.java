@@ -40,13 +40,8 @@ public class Window extends JFrame implements ActionListener, DocumentListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Object obj = e.getSource();
-        if (obj == textArea) {
-
-        } else {
-            twitter.Tweet(textArea.getText());
-            textArea.setText("");
-        }
+        twitter.Tweet(textArea.getText());
+        textArea.setText("");
     }
 
     @Override
