@@ -40,7 +40,6 @@ public class Twitter4jWrapper {
         try{
             requestToken = twitter.getOAuthRequestToken();
         } catch(TwitterException te) {
-            //エラーが発生したことをお知らせするウィンドウを表示する
             System.out.println(te.getStackTrace());
             System.exit(1);
         }
